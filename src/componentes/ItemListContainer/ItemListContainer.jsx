@@ -20,7 +20,7 @@ export const ItemListContainer = ({ saludo }) => {
 
   console.log(productos)
 
-  // [1,2,3,4] -> [ <li>{1}</li>, <li>{2}</li>, ....]
+  
   return (
     <center>
         { loading ? <h2>Cargando...</h2> 
