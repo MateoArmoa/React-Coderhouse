@@ -23,8 +23,8 @@ function App(props) {
                          onClick={() => alert('evento de app')}
                     >
                         <Routes>
-                            <Route  path='/' element={ <ItemListContainer saludo='saludo soy ItemList Container' /> } />
-                            <Route  path='/categoria/:idCategoria' element={ <ItemListContainer saludo='saludo soy ItemList Container' /> } />
+                            <Route  path='/' element={ <ItemListContainer saludo='' /> } />
+                            <Route  path='/categoria/:idCategoria' element={ <ItemListContainer saludo='' /> } />
 
                             <Route  path='/detalle/:idProducto' element={ <ItemDetailContainer /> } />
                             <Route  path='/cart' element={ <CartContainer />  } />               
