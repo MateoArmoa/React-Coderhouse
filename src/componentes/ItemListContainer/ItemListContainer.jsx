@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link, useParams } from "react-router-dom"
 import { gFetch } from "../../utils/gFetch"
 
 
@@ -12,7 +13,7 @@ export const ItemListContainer = ({ saludo }) => {
     gFetch()
       .then(res => {      
         setProductos(res)
-        // debe hacer una sola cosa
+        
       })
       .catch(error => console.log(error))
       .finally(()=> setLoading(false))

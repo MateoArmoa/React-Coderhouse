@@ -1,3 +1,4 @@
+import {Link, NavLink} from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -13,11 +14,19 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                    <Nav.Link href="#">Remeras</Nav.Link>
-                    <Nav.Link href="#">Bermudas</Nav.Link>
+                <NavLink to="/categoria/gorras" className={({ isActive })=> isActive  ? 'btn btn-primary':'btn btn-outline-primary' } >Remeras</NavLink>
+                    <NavLink to="/categoria/remeras" className={({ isActive })=> isActive  ? 'btn btn-primary':'btn btn-outline-primary' } >Bermudas</NavLink>
+
                     
                 </Nav>
-                </Navbar.Collapse>
+                <Nav>
+                    { <Nav.Link href="#deets">🛒</Nav.Link> } 
+                    <Link to='/cart'>
+                        <CartWidget />
+                    </Link>
+                </Nav>
+
+                     </Navbar.Collapse>
             </Container>
         </Navbar>
     )
