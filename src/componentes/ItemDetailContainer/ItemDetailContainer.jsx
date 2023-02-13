@@ -1,19 +1,39 @@
-import { useParams } from "react-router-dom"
-import ItemDetail from "../ItemDetail/ItemDetail"
+import { useState, useEffect } from 'react'
+import { BrowserRouter, Navigate, Route, Routes  } from 'react-router-dom';
+import NavBar from './componentes/NavBar/Navbar';
+import { ItemListContainer } from './componentes/ItemListContainer/ItemListContainer';
+ import ItemCount from './componentes/ItemCount/ItemCount';
+import ItemDetailContainer from './componentes/ItemDetailContainer/ItemDetailContainer';
+import CartContainer from './componentes/CartContainer/CartContainer';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { CartContextProvider } from './context/CartContext';
 
-const ItemDetailContainer = () => {
-    const { idProducto } = useParams()
-    console.log(idProducto)
-    
+
+
+function App() {  
     return (
-      <div 
-        className="border border-5 border-danger  m-3"
-      >
+        <BrowserRouter>
+            <CartContextProvider>
+                <NavBar />
+                <div 
+                >
+                    <Routes>
+                        <Route  path='/' element={ <ItemListContainer saludo='saludo soy ItemList Container' /> } />
+                        <Route  path='/categoria/:idCategoria' element={ <ItemListContainer saludo='saludo soy ItemList Container' /> } />
+
+                        <Route  path='/detalle/:idProducto' element={ <ItemDetailContainer /> } />
+                        <Route  path='/cart' element={ <CartContainer />  } />               
+
+                        <Route path='*' element={ <Navigate to='/' /> } />
+                    </Routes>
+                </div>               
+            </CartContextProvider>
+            
+        </BrowserRouter>
+
        
-        <ItemDetail />
-      </div>
     )
-  }
-  
-  export default ItemDetailContainer
-  
+}
+
+export default App
+
