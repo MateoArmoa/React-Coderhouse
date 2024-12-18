@@ -1,4 +1,5 @@
 import { useState } from "react"
+<Route path="/itemcount" element={<ItemCount />} />
 
 const ItemCoutn = ({initial=1, stock=10, onAdd}) => {
     const [ count, setCount] = useState(initial)

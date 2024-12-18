@@ -1,9 +1,17 @@
-import Item from "../Item/Item"
+import { Link } from "react-router-dom"; // Agrega esta línea si no la tienes.
 
-const ItemList = ({productos}) => {
+const ItemList = ({ productos }) => {
   return (
-     productos.map(producto =>   <Item key={producto.id}   producto={producto}/> )
-  )
-}
+    <div>
+      {productos.map((producto) => (
+        <div key={producto.id}>
+          <h3>{producto.nombre}</h3>
+          <p>{producto.descripcion}</p>
+          <Link to={`/detalle/${producto.id}`}>Ver detalles</Link>
+        </div>
+      ))}
+    </div>
+  );
+};
 
-export default ItemList
+export default ItemList; // Aquí exportas el componente correctamente.
